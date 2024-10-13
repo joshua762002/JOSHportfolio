@@ -1,0 +1,94 @@
+    <!-- Modal for Services -->
+    <div id="servicesModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Our Services</h2>
+            <p>We offer software development, web design, consulting, and more. Let's discuss how we can help your business grow.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Skills -->
+    <div id="skillsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>My Skills</h2>
+            <p>Proficient in Java, Python, C++, HTML, CSS, and JavaScript. I specialize in software development, data analysis, and web design.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Education -->
+    <div id="educationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Education</h2>
+            <p>Bachelor's in Computer Science from XYZ University. Passionate about learning and always pursuing new knowledge in technology.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Experience -->
+    <div id="experienceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Experience</h2>
+            <p>2+ years of experience in software development. Worked on various projects involving web applications and software solutions.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Contact -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Me</h2>
+            <p>Email: joshua@example.com</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to open modal
+        function openModal(modalId) {
+            var modal = document.getElementById(modalId);
+            modal.style.display = "block";
+        }
+
+        // Function to close modal
+        function closeModal() {
+            var modals = document.getElementsByClassName("modal");
+            for (let modal of modals) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Get all modal buttons
+        document.getElementById("openServices").onclick = function () {
+            openModal("servicesModal");
+        }
+        document.getElementById("openSkills").onclick = function () {
+            openModal("skillsModal");
+        }
+        document.getElementById("openEducation").onclick = function () {
+            openModal("educationModal");
+        }
+        document.getElementById("openExperience").onclick = function () {
+            openModal("experienceModal");
+        }
+        document.getElementById("openContact").onclick = function () {
+            openModal("contactModal");
+        }
+
+        // Get all close buttons
+        var closeButtons = document.getElementsByClassName("close");
+        for (let closeButton of closeButtons) {
+            closeButton.onclick = closeModal;
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            var modals = document.getElementsByClassName("modal");
+            for (let modal of modals) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+    </script>
