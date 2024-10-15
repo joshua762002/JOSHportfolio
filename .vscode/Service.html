@@ -1,46 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services Modal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            background-color: black;
+            color: white;
+        }
+
+        header {
+            margin-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 9%;
+            background-color: transparent;
+            filter: drop-shadow(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #b74b4b;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav a {
+            font-size: 1.8rem;
+            color: white;
+            margin-left: 4rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #b74b4b;
+            border-bottom: 3px solid #b74b4b;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 5rem 9% 5rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+        }
+
+        .modal-content {
+            background-color: #161616;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #b74b4b;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 10px;
+            color: white;
+        }
+
+        .close {
+            color: #b74b4b;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MyLogo</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#" id="openServices">Our Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="home">
+            <div class="home-content">
+                <h1>Welcome to Our Site!</h1>
+                <h3>We are here to help you.</h3>
+                <p>Discover our services that can enhance your business.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Modal for Services -->
     <div id="servicesModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closeModal()">&times;</span>
             <h2>Our Services</h2>
-            <p>We offer software development, web design, consulting, and more. Let's discuss how we can help your business grow.</p>
-        </div>
-    </div>
-
-    <!-- Modal for Skills -->
-    <div id="skillsModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>My Skills</h2>
-            <p>Proficient in Java, Python, C++, HTML, CSS, and JavaScript. I specialize in software development, data analysis, and web design.</p>
-        </div>
-    </div>
-
-    <!-- Modal for Education -->
-    <div id="educationModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Education</h2>
-            <p>Bachelor's in Computer Science from XYZ University. Passionate about learning and always pursuing new knowledge in technology.</p>
-        </div>
-    </div>
-
-    <!-- Modal for Experience -->
-    <div id="experienceModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Experience</h2>
-            <p>2+ years of experience in software development. Worked on various projects involving web applications and software solutions.</p>
-        </div>
-    </div>
-
-    <!-- Modal for Contact -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Contact Me</h2>
-            <p>Email: joshua@example.com</p>
-            <p>Phone: +123 456 7890</p>
+            <p>We offer a variety of programming services to help businesses thrive in the digital landscape. Our expertise includes:</p>
+            <ul>
+                <li><strong>Custom Software Development:</strong> Tailored software solutions designed to meet your specific business needs.</li>
+                <li><strong>Web Application Development:</strong> Robust and scalable web applications that provide seamless user experiences.</li>
+                <li><strong>Mobile Application Development:</strong> Native and cross-platform mobile applications that engage users on their devices.</li>
+                <li><strong>API Development and Integration:</strong> Building and integrating APIs that allow different software applications to communicate effectively.</li>
+                <li><strong>E-commerce Solutions:</strong> Comprehensive e-commerce platforms that drive sales and enhance user engagement.</li>
+                <li><strong>Maintenance and Support:</strong> Ongoing maintenance and support for your software applications.</li>
+                <li><strong>Consulting Services:</strong> Expert advice on technology strategy, software architecture, and project management.</li>
+            </ul>
         </div>
     </div>
 
@@ -63,18 +172,6 @@
         document.getElementById("openServices").onclick = function () {
             openModal("servicesModal");
         }
-        document.getElementById("openSkills").onclick = function () {
-            openModal("skillsModal");
-        }
-        document.getElementById("openEducation").onclick = function () {
-            openModal("educationModal");
-        }
-        document.getElementById("openExperience").onclick = function () {
-            openModal("experienceModal");
-        }
-        document.getElementById("openContact").onclick = function () {
-            openModal("contactModal");
-        }
 
         // Get all close buttons
         var closeButtons = document.getElementsByClassName("close");
@@ -92,3 +189,5 @@
             }
         }
     </script>
+</body>
+</html>

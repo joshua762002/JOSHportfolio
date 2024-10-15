@@ -1,248 +1,249 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Joshua's Portfolio</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Joshua's Portfolio</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            font-family: 'Poppins', sans-serif;
-        }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                text-decoration: none;
+                font-family: 'Poppins', sans-serif;
+            }
 
-        html {
-            font-size: 62.5%;
-        }
+            html {
+                font-size: 62.5%;
+            }
 
-        body {
-            width: 100%;
-            height: 100vh;
-            overflow-x: hidden;
-            background-color: black;
-            color: white;
-        }
+            body {
+                width: 100%;
+                height: 100vh;
+                overflow-x: hidden;
+                background-color: black;
+                color: white;
+            }
 
-        header {
-            margin-top: 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1rem 9%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
+            header {
+                margin-top: 20px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 1rem 9%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+            }
 
-        .logo {
-            font-size: 3rem;
-            color: #b74b4b;
-            font-weight: 800;
-            cursor: pointer;
-            transition: 0.5s ease;
-        }
+            .logo {
+                font-size: 3rem;
+                color: #b74b4b;
+                font-weight: 800;
+                cursor: pointer;
+                transition: 0.5s ease;
+            }
 
-        .logo:hover {
-            transform: scale(1.1);
-        }
+            .logo:hover {
+                transform: scale(1.1);
+            }
 
-        nav a {
-            font-size: 1.8rem;
-            color: white;
-            margin-left: 4rem;
-            font-weight: 500;
-            transition: 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
+            nav a {
+                font-size: 1.8rem;
+                color: white;
+                margin-left: 4rem;
+                font-weight: 500;
+                transition: 0.3s ease;
+                border-bottom: 3px solid transparent;
+            }
 
-        nav a:hover,
-        nav a.active {
-            color: #b74b4b;
-            border-bottom: 3px solid #b74b4b;
-        }
+            nav a:hover,
+            nav a.active {
+                color: #b74b4b;
+                border-bottom: 3px solid #b74b4b;
+            }
 
-        section {
-            min-height: 100vh;
-            padding: 5rem 9%;
-        }
+            section {
+                min-height: 100vh;
+                padding: 5rem 9%;
+            }
 
-        .home {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8rem;
-            background-color: black;
-        }
+            .home {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8rem;
+                background-color: black;
+            }
 
-        .home .home-content h1 {
-            font-size: 6rem;
-            font-weight: 700;
-            line-height: 1.3;
-        }
+            .home .home-content h1 {
+                font-size: 6rem;
+                font-weight: 700;
+                line-height: 1.3;
+            }
 
-        span {
-            color: #b74b4b;
-        }
+            span {
+                color: #b74b4b;
+            }
 
-        .home-content h3 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
+            .home-content h3 {
+                font-size: 4rem;
+                margin-bottom: 1rem;
+                font-weight: 700;
+            }
 
-        .home-content p {
-            font-size: 1.6rem;
-        }
+            .home-content p {
+                font-size: 1.6rem;
+            }
 
-        .home-img {
-            border-radius: 50%;
-        }
+            .home-img {
+                border-radius: 50%;
+            }
 
-        .home-img img {
-            width: 32vw;
-            border-radius: 50%;
-            box-shadow: 0 0 25px solid #b74b4b;
-            cursor: pointer;
-            transition: 0.2s linear;
-        }
+            .home-img img {
+                width: 32vw;
+                border-radius: 50%;
+                box-shadow: 0 0 25px solid #b74b4b;
+                cursor: pointer;
+                transition: 0.2s linear;
+            }
 
-        .home-img img:hover {
-            transform: scale(1.05);
-        }
+            .home-img img:hover {
+                transform: scale(1.05);
+            }
 
-        .social-icons a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 4rem;
-            height: 4rem;
-            background-color: transparent;
-            border: 0.2rem solid #b74b4b;
-            font-size: 2rem;
-            border-radius: 50%;
-            margin: 3rem 1.5rem 3rem 0;
-            transition: 0.3s ease;
-            color: #b74b4b;
-        }
+            .social-icons a {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 4rem;
+                height: 4rem;
+                background-color: transparent;
+                border: 0.2rem solid #b74b4b;
+                font-size: 2rem;
+                border-radius: 50%;
+                margin: 3rem 1.5rem 3rem 0;
+                transition: 0.3s ease;
+                color: #b74b4b;
+            }
 
-        .social-icons a:hover {
-            color: black;
-            transform: scale(1.3) translateY(-5px);
-            background-color: #b74b4b;
-            box-shadow: 0 0 25px #b74b4b;
-        }
+            .social-icons a:hover {
+                color: black;
+                transform: scale(1.3) translateY(-5px);
+                background-color: #b74b4b;
+                box-shadow: 0 0 25px #b74b4b;
+            }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.8rem;
-            background-color: black;
-            border-radius: 4rem;
-            font-size: 1.6rem;
-            color: #b74b4b;
-            letter-spacing: 0.3rem;
-            font-weight: 600;
-            border: 2px solid #b74b4b;
-            transition: 0.3s ease;
-            cursor: pointer;
-        }
+            .btn {
+                display: inline-block;
+                padding: 1rem 2.8rem;
+                background-color: black;
+                border-radius: 4rem;
+                font-size: 1.6rem;
+                color: #b74b4b;
+                letter-spacing: 0.3rem;
+                font-weight: 600;
+                border: 2px solid #b74b4b;
+                transition: 0.3s ease;
+                cursor: pointer;
+            }
 
-        .btn:hover {
-            transform: scale(1.05);
-            background-color: #b74b4b;
-            color: black;
-            box-shadow: 0 0 25px #b74b4b;
-        }
+            .btn:hover {
+                transform: scale(1.05);
+                background-color: #b74b4b;
+                color: black;
+                box-shadow: 0 0 25px #b74b4b;
+            }
 
-        /* Modal (background) */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
+            /* Modal (background) */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                justify-content: center;
+                align-items: center;
+            }
 
-        /* Modal Content */
-        .modal-content {
-            background-color: white;
-            margin: 15% auto;
-            padding: 20px;
-            width: 80%;
-            color: black;
-        }
+            /* Modal Content */
+            .modal-content {
+                background-color: white;
+                margin: 15% auto;
+                padding: 20px;
+                width: 80%;
+                color: black;
+            }
 
-        /* Close button */
-        .close {
-            color: red;
-            float: right;
-            font-size: 28px;
-            cursor: pointer;
-        }
+            /* Close button */
+            .close {
+                color: red;
+                float: right;
+                font-size: 28px;
+                cursor: pointer;
+            }
 
-    </style>
-</head>
+        </style>
+    </head>
 
-<body>
-    <header>
-        <a href="#" class="logo">Josh</a>
-        <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#" id="openServices">Services</a>
-            <a href="#" id="openSkills">Skills</a>
-            <a href="#" id="openEducation">Education</a>
-            <a href="#" id="openExperience">Experience</a>
-            <a href="#" id="openContact">Contact</a>
-        </nav>
-    </header>
+    <body>
+        <header>
+            <a href="#" class="logo">Josh</a>
+            <nav>
+                <a href="portfolio.html" class="active">Home</a>
+                <a href="Service.html">Services</a>
+                <a href="#skills" id="openSkills">Skills</a>
+                <a href="#education" id="openEducation">Education</a>
+                <a href="#experience" id="openExperience">Experience</a>
+                <a href="#contact" id="openContact">Contact</a>
+            </nav>
+        </header>
 
-    <section class="home">
-        <div class="home-img">
-            <img src="https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/462779827_1765164284282954_5271995281538357443_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEIrDCLdrH9BC2t8EwuVASBJG7juGyoUN4kbuO4bKhQ3vnul_J4DRSct1zdUYrU0BlpGoy2Yt50V_QUQ-1ze6o1&_nc_ohc=vbDm40XHSKcQ7kNvgHQbZSx&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=AuYqR6pci8qDC2WTy4wnASo&oh=00_AYD1-T2MXjnTjRO4vI61q4VyVnRdKRVM4Bu5kNJTBsO6Dw&oe=6711C7DC" alt="Joshua's Photo">
-        </div>
-
-        <div class="home-content">
-            <h1>Hi, It's <span>Joshua</span></h1>
-            <h3>I'm a <span>Software Developer</span></h3>
-            <p>
-                I'm a professional IT programmer Copy paste with expertise in Java, Python, C++, and more. Passionate about technology, I'm always exploring new tools to deliver creative solutions. Let's connect and work on something awesome!
-            </p>
-            <div class="social-icons">
-                <a href="https://steamcommunity.com/profiles/76561198800949857/"><i class="fa-brands fa-steam"></i></a>
-                <a href="https://github.com/joshua762002"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.facebook.com/joshua.eviota.7/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/jasperr20021/"><i class="fa-brands fa-instagram"></i></a>
+        <section class="home">
+            <div class="home-img">
+                <img src="https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/462779827_1765164284282954_5271995281538357443_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEIrDCLdrH9BC2t8EwuVASBJG7juGyoUN4kbuO4bKhQ3vnul_J4DRSct1zdUYrU0BlpGoy2Yt50V_QUQ-1ze6o1&_nc_ohc=vbDm40XHSKcQ7kNvgHQbZSx&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=AuYqR6pci8qDC2WTy4wnASo&oh=00_AYD1-T2MXjnTjRO4vI61q4VyVnRdKRVM4Bu5kNJTBsO6Dw&oe=6711C7DC" alt="Joshua's Photo">
             </div>
-            <a href="#" class="btn">Hire Me</a>
-        </div>
-    </section>
 
-    <!-- Modal Structure -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Our Services</h2>
-            <p>We offer software development, web design, consulting, and more. Let's discuss how we can help your business grow.</p>
-        </div>
-    </div>
+            <div class="home-content">
+                <h1>Hi, It's <span>Joshua</span></h1>
+                <h3>I'm a <span>Software Developer</span></h3>
+                <p>
+                    I'm a professional IT programmer Copy paste with expertise in Java, Python, C++, and more. Passionate about technology, I'm always exploring new tools to deliver creative solutions. Let's connect and work on something awesome!
+                </p>
+                <div class="social-icons">
+                    <a href="https://steamcommunity.com/profiles/76561198800949857/"><i class="fa-brands fa-steam"></i></a>
+                    <a href="https://github.com/joshua762002"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.facebook.com/joshua.eviota.7/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/jasperr20021/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="#" class="btn">Hire Me</a>
+            </div>
 
-    <div id="skillsModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>My Skills</h2>
-            <p>Proficient in Java, Python, C++, HTML, CSS, and JavaScript. I specialize in software development, data analysis, and web design.</p>
+        </section>
+
+        <!-- Modal Structure -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Our Services</h2>
+                <p>We offer software development, web design, consulting, and more. Let's discuss how we can help your business grow.</p>
+            </div>
         </div>
-    </
+
+        <div id="skillsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>My Skills</h2>
+                <p>Proficient in Java, Python, C++, HTML, CSS, and JavaScript. I specialize in software development, data analysis, and web design.</p>
+            </div>
+        </

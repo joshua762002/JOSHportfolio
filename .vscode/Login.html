@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - One Piece World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            background-color: black; /* Dark background */
+            color: white; /* Light text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: #1f1f1f; /* Darker container background */
+            padding: 40px 30px; /* Vertical and horizontal padding */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6); /* Softer shadow */
+            width: 100%;
+            max-width: 400px; /* Max width for better alignment */
+            text-align: center; /* Center text */
+        }
+
+        h2 {
+            margin-bottom: 30px; /* Space below the heading */
+            font-weight: 600; /* Bold heading */
+            font-size: 26px; /* Increased heading size */
+        }
+
+        .input-group {
+            width: 100%; /* Full width for input groups */
+            margin-bottom: 20px; /* Space between input fields */
+            position: relative; /* Position for labels */
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 15px; /* Increased padding */
+            border: 1px solid #555; /* Dark border */
+            border-radius: 4px;
+            background-color: #292929; /* Dark input background */
+            color: white; /* Light text color */
+            font-size: 16px; /* Slightly larger text */
+            transition: border-color 0.3s, background-color 0.3s; /* Smooth transition */
+        }
+
+        input:focus {
+            border-color: #b74b4b; /* Change border color on focus */
+            background-color: #333; /* Slightly lighter on focus */
+            outline: none; /* Remove outline */
+        }
+
+        label {
+            position: absolute; /* Position label on top of input */
+            left: 15px; /* Align label inside input */
+            top: 15px; /* Vertical positioning */
+            font-size: 16px; /* Font size for label */
+            color: #aaa; /* Light gray color */
+            pointer-events: none; /* Prevent clicking on label */
+            transition: 0.3s; /* Smooth transition */
+        }
+
+        input:focus + label, input:not(:placeholder-shown) + label {
+            top: -10px; /* Move label up */
+            left: 10px; /* Align label */
+            font-size: 12px; /* Smaller font size */
+            color: #b74b4b; /* Change label color on focus */
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #b74b4b; /* Button color */
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px; /* Uniform button text size */
+            transition: background-color 0.3s; /* Smooth transition */
+            margin-top: 20px; /* Space above button */
+        }
+
+        button:hover {
+            background-color: #218838; /* Darker color on hover */
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px; /* Smaller footer text */
+            color: #bbb; /* Lighter text color */
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <div class="input-group">
+            <input type="text" name="username" placeholder=" " required>
+            <label>Username</label>
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" placeholder=" " required>
+            <label>Password</label>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <div class="footer">
+        <p>&copy; 2024 One Piece World. All rights reserved.</p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Add your authentication logic here
+        // For now, we'll just redirect to the home page
+        window.location.href = 'portfolio.html'; // Change this to the path of your home page
+    });
+</script>
+
+</body>
+</html>
