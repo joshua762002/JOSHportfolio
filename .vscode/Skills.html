@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Services Modal</title>
+    <title>My Skills Modal</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap">
     <style>
         /* General reset and font setup */
@@ -228,7 +228,7 @@
     <div class="logo">Josh</div>
     <nav>
         <a href="portfolio.html">Home</a>
-        <a href="openServices" id="openServices">My Services</a>
+        <a href="#" id="openSkills">My Skills</a>
     </nav>
 </header>
 
@@ -236,53 +236,51 @@
     <div class="home-content">
         <h1 class="intro-text">Welcome to My Site!</h1>
         <p class="intro-subtext">I am here to help you.</p>
-        <p class="intro-subtext">Discover how my services can elevate your business.</p>
-        <img src="https://image.cdn2.seaart.ai/2024-02-28/cnfh0ate878c73chn3p0/d7b8448ff7afc6b0231174518ef9f6bf228364c0_high.webp" alt="Services Image" class="services-image">
-        <button class="modal-trigger" id="openServicesButton">Learn More About My Services</button>
+        <p class="intro-subtext">Discover how my skills can benefit your project.</p>
+        <img src="https://image.cdn2.seaart.ai/2023-08-18/14710967066742789/ec6b001f2a61ed335fbf43144e6fe8edf77976b8_high.webp" alt="Services Image" class="services-image">
+        <button class="modal-trigger" id="openSkillsButton">Learn More About My Skills</button>
     </div>
 </section>
 
-<!-- Modal for Services -->
-<div id="servicesModal" class="modal">
+<!-- Modal for Skills -->
+<div id="skillsModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>My Premium Services</h2>
-        <img src="https://image.cdn2.seaart.ai/2024-02-08/cn27rt5e878c73cep7c0/7bc141896a75a76ef1bb77f15e477862b58a0a6c_high.webp" class="services-image" alt="Service Image">
-        <p>I offer a range of premium programming and consulting services tailored to help businesses succeed in the digital age:</p>
+        <span class="close" onclick="closeSkillsModal()">&times;</span>
+        <h2>My Skills</h2>
+        <img src="https://image.cdn2.seaart.ai/2024-02-03/cmv88ole878c73ec54p0/940804706caf3ec053755e9248c9881d49b69e28_high.webp" class="services-image" alt="Skills Image">
+        <p>Proficient in Java, Python, C++, HTML, CSS, and JavaScript. I specialize in:</p>
         <ul>
-            <li><strong>Custom Software Development</strong>: Tailor-made solutions designed to meet your unique business goals.</li>
-            <li><strong>Web Application Development</strong>: Scalable and secure web applications for seamless user experiences.</li>
-            <li><strong>Mobile Application Development</strong>: Engaging mobile apps to expand your digital reach.</li>
-            <li><strong>API Development</strong>: Robust APIs that enable smooth communication between software systems.</li>
-            <li><strong>E-commerce Solutions</strong>: Comprehensive platforms to enhance online shopping experiences.</li>
-            <li><strong>Maintenance and Support</strong>: Ongoing technical support for smooth operation.</li>
-            <li><strong>Consulting and Strategy</strong>: Expert advice for your digital transformation journey.</li>
+            <li><strong>Software Development</strong>: Building robust applications for businesses and users.</li>
+            <li><strong>Web Development</strong>: Crafting responsive websites using modern technologies.</li>
+            <li><strong>Mobile Apps</strong>: Creating cross-platform apps for Android and iOS.</li>
+            <li><strong>API Design</strong>: Developing APIs for smooth integration and scalability.</li>
+            <li><strong>Data Analysis</strong>: Working with data to derive actionable insights.</li>
         </ul>
     </div>
 </div>
 
 <script>
-    const modal = document.getElementById('servicesModal');
-    const openModalButton = document.getElementById('openServicesButton');
-    const closeModalButton = document.querySelector('.close');
+    const skillsModal = document.getElementById('skillsModal');
+    const openSkillsModalButton = document.getElementById('openSkillsButton');
+    const closeSkillsModalButton = document.querySelector('.close');
 
-    openModalButton.addEventListener('click', () => {
-        modal.style.display = 'flex';
+    openSkillsModalButton.addEventListener('click', () => {
+        skillsModal.style.display = 'flex';
         setTimeout(() => {
             document.querySelector('.modal-content').classList.add('show');
         }, 10);
     });
 
-    function closeModal() {
+    function closeSkillsModal() {
         document.querySelector('.modal-content').classList.remove('show');
         setTimeout(() => {
-            modal.style.display = 'none';
+            skillsModal.style.display = 'none';
         }, 300);
     }
 
     window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            closeModal();
+        if (event.target === skillsModal) {
+            closeSkillsModal();
         }
     });
 </script>
