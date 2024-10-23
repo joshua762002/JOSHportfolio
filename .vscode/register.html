@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,140 +21,150 @@
             width: 100%;
             height: 100vh;
             overflow-x: hidden;
-            background-color: black; /* Dark background */
-            color: white; /* Light text color */
+            background-color: black;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .register-container {
-            background: #1f1f1f; /* Darker container background */
-            padding: 40px 30px; /* Vertical and horizontal padding */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6); /* Softer shadow */
+            background: #1f1f1f;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
             width: 100%;
-            max-width: 400px; /* Max width for better alignment */
-            text-align: center; /* Center text */
+            max-width: 400px;
+            text-align: center;
         }
 
         h2 {
-            margin-bottom: 20px; /* Space below the heading */
-            font-weight: 600; /* Bold heading */
-            font-size: 26px; /* Increased heading size */
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 26px;
         }
 
         .input-group {
-            width: 100%; /* Full width for input groups */
-            margin-bottom: 20px; /* Space between input fields */
-            position: relative; /* Position for labels */
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
         }
 
-        input[type="text"], input[type="email"], input[type="password"] {
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
             width: 100%;
-            padding: 15px; /* Increased padding */
-            border: 1px solid #555; /* Dark border */
+            padding: 15px;
+            border: 1px solid #555;
             border-radius: 4px;
-            background-color: #292929; /* Dark input background */
-            color: white; /* Light text color */
-            font-size: 16px; /* Slightly larger text */
-            transition: border-color 0.3s, background-color 0.3s; /* Smooth transition */
+            background-color: #292929;
+            color: white;
+            font-size: 16px;
+            transition: border-color 0.3s, background-color 0.3s;
         }
 
         input:focus {
-            border-color: #b74b4b; /* Change border color on focus */
-            background-color: #333; /* Slightly lighter on focus */
-            outline: none; /* Remove outline */
+            border-color: #b74b4b;
+            background-color: #333;
+            outline: none;
         }
 
         label {
-            position: absolute; /* Position label on top of input */
-            left: 15px; /* Align label inside input */
-            top: 15px; /* Vertical positioning */
-            font-size: 16px; /* Font size for label */
-            color: #aaa; /* Light gray color */
-            pointer-events: none; /* Prevent clicking on label */
-            transition: 0.3s; /* Smooth transition */
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            font-size: 16px;
+            color: #aaa;
+            pointer-events: none;
+            transition: 0.3s;
         }
 
-        input:focus + label, input:not(:placeholder-shown) + label {
-            top: -10px; /* Move label up */
-            left: 10px; /* Align label */
-            font-size: 12px; /* Smaller font size */
-            color: #b74b4b; /* Change label color on focus */
+        input:focus+label,
+        input:not(:placeholder-shown)+label {
+            top: -10px;
+            left: 10px;
+            font-size: 12px;
+            color: #b74b4b;
         }
 
         button {
             width: 100%;
             padding: 15px;
-            background-color: #b74b4b; /* Button color */
+            background-color: #b74b4b;
             border: none;
             color: white;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px; /* Uniform button text size */
-            transition: background-color 0.3s; /* Smooth transition */
-            margin-top: 20px; /* Space above button */
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
         }
 
         button:hover {
-            background-color: #218838; /* Darker color on hover */
+            background-color: #a04040;
         }
 
         .login-link {
             margin-top: 20px;
-            font-size: 14px; /* Smaller footer text */
-            color: #bbb; /* Lighter text color */
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .login-link a {
+            color: #b74b4b;
         }
     </style>
 </head>
+
 <body>
 
-<div class="register-container">
-    <h2>Create Account</h2>
-    <form id="registerForm">
-        <div class="input-group">
-            <input type="text" name="username" placeholder=" " required>
-            <label>Username</label>
+    <div class="register-container">
+        <h2>Create Account</h2>
+        <form id="registerForm">
+            <div class="input-group">
+                <input type="text" name="username" placeholder=" " required>
+                <label>Username</label>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder=" " required>
+                <label>Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder=" " required>
+                <label>Password</label>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="login-link">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
         </div>
-        <div class="input-group">
-            <input type="email" name="email" placeholder=" " required>
-            <label>Email</label>
-        </div>
-        <div class="input-group">
-            <input type="password" name="password" placeholder=" " required>
-            <label>Password</s
-        <button type="submit">Register</button>
-    </form>
-    
-    <div class="login-link">
-        <p>Already have an account? <a href="login.html">Login here</a></p>
     </div>
-</div>
 
-<script>
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
 
-        // Get the form values
-        const username = document.querySelector('input[name="username"]').value;
-        const email = document.querySelector('input[name="email"]').value;
-        const password = document.querySelector('input[name="password"]').value;
+            // Get the form values
+            const username = document.querySelector('input[name="username"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
 
-        // Save user data in localStorage
-        const user = {
-            username: username,
-            email: email,
-            password: password
-        };
+            // Save user data in localStorage
+            const user = {
+                username: username,
+                email: email,
+                password: password
+            };
 
-        localStorage.setItem('user', JSON.stringify(user)); // Store user info as a string
+            localStorage.setItem('user', JSON.stringify(user)); // Store user info as a string
 
-        // Redirect to login page after successful registration
-        alert('Registration successful! Please log in.');
-        window.location.href = 'login.html';
-    });
-</script>
+            // Redirect to login page after successful registration
+            alert('Registration successful! Please log in.');
+            window.location.href = 'login.html';
+        });
+    </script>
 
 </body>
+
 </html>
