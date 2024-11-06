@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Experience Modal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap">
+    <style>
+        /* General reset and font setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            background-color: #121212;  /* Black background for the page */
+            color: white;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 9%;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #b74b4b;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav a {
+            font-size: 1.8rem;
+            color: white;
+            margin-left: 4rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #b74b4b;
+            border-bottom: 3px solid #b74b4b;
+        }
+
+        section {
+            padding: 5rem 9% 5rem;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #b74b4b;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .intro-subtext {
+            font-size: 1.8rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);  /* Dark background for modal */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .modal-content {
+            background-color: #161616;  /* Dark background inside the modal */
+            padding: 30px;
+            border: 1px solid #b74b4b;
+            width: 70%;
+            max-width: 950px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal-content.show {
+            transform: scale(1);
+        }
+
+        .close {
+            color: #b74b4b;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .close:hover {
+            color: white;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b74b4b;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1.6rem;
+        }
+
+        li {
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        li:hover {
+            color: #b74b4b;
+        }
+
+        li::before {
+            content: "✓ ";
+            color: #b74b4b;
+        }
+
+        .modal-trigger {
+            background-color: #b74b4b;
+            padding: 1rem 2rem;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.6rem;
+            border: none;
+        }
+
+        .modal-trigger:hover {
+            background-color: white;
+            color: #b74b4b;
+            transform: scale(1.05);
+        }
+
+        .experience-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Animations for modal and buttons */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Button hover effect */
+        .modal-trigger:hover {
+            background-color: #fff;
+            color: #b74b4b;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+            }
+
+            nav a {
+                font-size: 1.5rem;
+                margin-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Josh</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Experience.html" id="openExperience">My Experience</a>
+    </nav>
+</header>
+
+<section>
+    <div class="home-content">
+        <h1 class="intro-text">MY Experience </h1>
+        <p class="intro-subtext">I am passionate about building digital solutions.</p>
+        <p class="intro-subtext">Explore my experience in technology and development.</p>
+        <img src="https://image.cdn2.seaart.me/2024-07-31/cqlbgcde878c73anf2fg/525eceebf45cd983f4e67b0b75184fb592cff19a_high.webp" alt="Experience Image" class="experience-image">
+        <button class="modal-trigger" id="openExperienceButton">Learn More About My Experience</button>
+    </div>
+</section>
+
+<!-- Modal for Experience -->
+<div id="experienceModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>My Professional Experience</h2>
+        <img src="https://image.cdn2.seaart.me/2023-10-09/19380321931791365/e59de351cdd081572431002f93b0c3083b068f6f_high.webp" class="experience-image" alt="Experience Image">
+        <p>I have worked in several dynamic environments, delivering innovative digital solutions to clients in various sectors. Here are a few highlights of my experience:</p>
+        <ul>
+            <li><strong>Software Developer</strong>: Developed and maintained web and mobile applications for clients in e-commerce and healthcare.</li>
+            <li><strong>Full-Stack Development</strong>: Designed and implemented end-to-end web applications using technologies like JavaScript, Node.js, and MongoDB.</li>
+            <li><strong>Project Manager</strong>: Led a team of developers to deliver complex projects on time, ensuring quality and client satisfaction.</li>
+            <li><strong>Consulting</strong>: Advised businesses on software architecture, product development strategies, and process optimization.</li>
+            <li><strong>Mentorship</strong>: Trained and mentored junior developers, helping them grow in their careers.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('experienceModal');
+    const openModalButton = document.getElementById('openExperienceButton');
+    const closeModalButton = document.querySelector('.close');
+
+    openModalButton.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            document.querySelector('.modal-content').classList.add('show');
+        }, 10);
+    });
+
+    function closeModal() {
+        document.querySelector('.modal-content').classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>

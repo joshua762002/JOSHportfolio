@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Education Modal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap">
+    <style>
+        /* General reset and font setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            background-color: #121212;
+            color: white;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 9%;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #b74b4b;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav a {
+            font-size: 1.8rem;
+            color: white;
+            margin-left: 4rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #b74b4b;
+            border-bottom: 3px solid #b74b4b;
+        }
+
+        section {
+            padding: 5rem 9% 5rem;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #b74b4b;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .intro-subtext {
+            font-size: 1.8rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .modal-content {
+            background-color: #161616;
+            padding: 30px;
+            border: 1px solid #b74b4b;
+            width: 70%;
+            max-width: 950px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal-content.show {
+            transform: scale(1);
+        }
+
+        .close {
+            color: #b74b4b;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .close:hover {
+            color: white;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b74b4b;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1.6rem;
+        }
+
+        li {
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        li:hover {
+            color: #b74b4b;
+        }
+
+        li::before {
+            content: "✓ ";
+            color: #b74b4b;
+        }
+
+        .modal-trigger {
+            background-color: #b74b4b;
+            padding: 1rem 2rem;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.6rem;
+            border: none;
+        }
+
+        .modal-trigger:hover {
+            background-color: white;
+            color: #b74b4b;
+            transform: scale(1.05);
+        }
+
+        .education-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+            }
+
+            nav a {
+                font-size: 1.5rem;
+                margin-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Josh</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="education.html" id="openeducation">My Education</a>
+    </nav>
+</header>
+
+<section>
+    <div class="home-content">
+        <h1 class="intro-text">Welcome to My Academic Journey!</h1>
+        <p class="intro-subtext">Learn about my education background and future goals.</p>
+        <img src="https://image.cdn2.seaart.me/2024-02-28/cnfc3qte878c73cph4s0/4c04495fdf40e7eb928126fabcce316cdadcb506_high.webp" alt="Education Image" class="education-image">
+        <button class="modal-trigger" id="openEducationButton">Learn More About My Education</button>
+    </div>
+</section>
+
+<!-- Modal for Education -->
+<div id="educationModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>My Education Background</h2>
+        <img src="https://image.cdn2.seaart.me/2023-09-12/16942957847394309/30d6220b72cc738786e838faf55dce1b0af3604b_high.webp" class="education-image" alt="Education Image">
+        <p>I am dedicated to lifelong learning and have set ambitious academic goals. Here's a look at my educational achievements and aspirations:</p>
+        <ul>
+            <li><strong>Current Program</strong>: Bachelor’s degree in Information Technology at Nothern bukidnon state college</li>
+            <li><strong>Future Goals</strong>: Pursuing a Master’s degree at top institutions such as:</li>
+            <ul>
+                <li>Massachusetts Institute of Technology (MIT)</li>
+                <li>Stanford University</li>
+                <li>Harvard University</li>
+                <li>University of California, Berkeley</li>
+                <li>Carnegie Mellon University</li>
+            </ul>
+            <li><strong>Planned Master's Specializations</strong>:
+                <ul>
+                    <li>Master’s in Computer Science with a focus on Artificial Intelligence</li>
+                    <li>Master’s in Information Systems and Technology</li>
+                    <li>Master’s in Cybersecurity and Data Science</li>
+                </ul>
+            </li>
+            <li><strong>Certifications</strong>: Web Development, JavaScript, and Python</li>
+            <li><strong>Honors and Awards</strong>: Academic Honors and Scholarship for Information Technology</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('educationModal');
+    const openModalButton = document.getElementById('openEducationButton');
+    const closeModalButton = document.querySelector('.close');
+
+    openModalButton.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            document.querySelector('.modal-content').classList.add('show');
+        }, 10);
+    });
+
+    function closeModal() {
+        document.querySelector('.modal-content').classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>

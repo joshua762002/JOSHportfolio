@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Skills Modal</title>
+    <title>My Contact Modal</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap">
     <style>
         /* General reset and font setup */
@@ -25,7 +25,7 @@
             width: 100%;
             height: 100vh;
             overflow-x: hidden;
-            background-color: #121212;  /* Black background for the page */
+            background-color: #121212;
             color: white;
         }
 
@@ -100,7 +100,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);  /* Dark background for modal */
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -108,7 +108,7 @@
         }
 
         .modal-content {
-            background-color: #161616;  /* Dark background inside the modal */
+            background-color: #161616;
             padding: 30px;
             border: 1px solid #b74b4b;
             width: 70%;
@@ -182,7 +182,7 @@
             transform: scale(1.05);
         }
 
-        .services-image {
+        .education-image {
             width: 100%;
             max-width: 700px;
             height: auto;
@@ -193,21 +193,13 @@
             margin-right: auto;
         }
 
-        /* Animations for modal and buttons */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        a {
+            color: red; /* Set the color to red for links */
+            transition: color 0.3s ease;
         }
 
-        /* Button hover effect */
-        .modal-trigger:hover {
-            background-color: #fff;
-            color: #b74b4b;
-            transform: scale(1.05);
+        a:hover {
+            color: #b74b4b; /* Change color on hover */
         }
 
         @media (max-width: 768px) {
@@ -227,60 +219,58 @@
 <header>
     <div class="logo">Josh</div>
     <nav>
-        <a href="portfolio.html">Home</a>
-        <a href="#" id="openSkills">My Skills</a>
+        <a href="index.html">Home</a>
+        <a href="contact.html" id="openContact">My Contact</a>
     </nav>
 </header>
 
 <section>
     <div class="home-content">
-        <h1 class="intro-text">Welcome to My Site!</h1>
-        <p class="intro-subtext">I am here to help you.</p>
-        <p class="intro-subtext">Discover how my skills can benefit your project.</p>
-        <img src="https://image.cdn2.seaart.ai/2023-08-18/14710967066742789/ec6b001f2a61ed335fbf43144e6fe8edf77976b8_high.webp" alt="Services Image" class="services-image">
-        <button class="modal-trigger" id="openSkillsButton">Learn More About My Skills</button>
+        <h1 class="intro-text"> Contact me</h1>
+        <p class="intro-subtext"></p>
+        <img src="https://image.cdn2.seaart.me/2024-09-24/crpa79de878c73fq7o30/3235a2dea0d73178d9750786765d28b526ad8ece_high.webp" alt="Contact Image" class="education-image">
+        <button class="modal-trigger" id="openContactButton">Learn More About How to Contact Me</button>
     </div>
 </section>
 
-<!-- Modal for Skills -->
-<div id="skillsModal" class="modal">
+<!-- Modal for Contact -->
+<div id="contactModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeSkillsModal()">&times;</span>
-        <h2>My Skills</h2>
-        <img src="https://image.cdn2.seaart.ai/2024-02-03/cmv88ole878c73ec54p0/940804706caf3ec053755e9248c9881d49b69e28_high.webp" class="services-image" alt="Skills Image">
-        <p>Proficient in Java, Python, C++, HTML, CSS, and JavaScript. I specialize in:</p>
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Contact Information</h2>
+        <img src="https://image.cdn2.seaart.me/2024-09-22/crnq67le878c73f0r6ug-2/c9e5a208abb915a0bd26071707567f59_high.webp" class="education-image" alt="Contact Image">
+        <p>Feel free to reach out to me through the following channels:</p>
         <ul>
-            <li><strong>Software Development</strong>: Building robust applications for businesses and users.</li>
-            <li><strong>Web Development</strong>: Crafting responsive websites using modern technologies.</li>
-            <li><strong>Mobile Apps</strong>: Creating cross-platform apps for Android and iOS.</li>
-            <li><strong>API Design</strong>: Developing APIs for smooth integration and scalability.</li>
-            <li><strong>Data Analysis</strong>: Working with data to derive actionable insights.</li>
+            <li><strong>Email</strong>: joshuaeviota100@gmail.com</li>
+            <li><strong>Phone</strong>: 09685666487</li>
+            <li><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/joshua-eviota-02a4a8337/" target="_blank">linkedin.com/in/joshua-eviota</a></li>
+            <li><strong>GitHub</strong>: <a href="https://github.com/joshua762002" target="_blank">github.com/joshua-eviota</a></li>
         </ul>
     </div>
 </div>
 
 <script>
-    const skillsModal = document.getElementById('skillsModal');
-    const openSkillsModalButton = document.getElementById('openSkillsButton');
-    const closeSkillsModalButton = document.querySelector('.close');
+    const modal = document.getElementById('contactModal');
+    const openModalButton = document.getElementById('openContactButton');
+    const closeModalButton = document.querySelector('.close');
 
-    openSkillsModalButton.addEventListener('click', () => {
-        skillsModal.style.display = 'flex';
+    openModalButton.addEventListener('click', () => {
+        modal.style.display = 'flex';
         setTimeout(() => {
             document.querySelector('.modal-content').classList.add('show');
         }, 10);
     });
 
-    function closeSkillsModal() {
+    function closeModal() {
         document.querySelector('.modal-content').classList.remove('show');
         setTimeout(() => {
-            skillsModal.style.display = 'none';
+            modal.style.display = 'none';
         }, 300);
     }
 
     window.addEventListener('click', (event) => {
-        if (event.target === skillsModal) {
-            closeSkillsModal();
+        if (event.target === modal) {
+            closeModal();
         }
     });
 </script>

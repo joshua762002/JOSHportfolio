@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills Modal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap">
+    <style>
+        /* General reset and font setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            background-color: #121212;  /* Black background for the page */
+            color: white;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 9%;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #b74b4b;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav a {
+            font-size: 1.8rem;
+            color: white;
+            margin-left: 4rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #b74b4b;
+            border-bottom: 3px solid #b74b4b;
+        }
+
+        section {
+            padding: 5rem 9% 5rem;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #b74b4b;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .intro-subtext {
+            font-size: 1.8rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);  /* Dark background for modal */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .modal-content {
+            background-color: #161616;  /* Dark background inside the modal */
+            padding: 30px;
+            border: 1px solid #b74b4b;
+            width: 70%;
+            max-width: 950px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal-content.show {
+            transform: scale(1);
+        }
+
+        .close {
+            color: #b74b4b;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .close:hover {
+            color: white;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b74b4b;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1.6rem;
+        }
+
+        li {
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        li:hover {
+            color: #b74b4b;
+        }
+
+        li::before {
+            content: "✓ ";
+            color: #b74b4b;
+        }
+
+        .modal-trigger {
+            background-color: #b74b4b;
+            padding: 1rem 2rem;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.6rem;
+            border: none;
+        }
+
+        .modal-trigger:hover {
+            background-color: white;
+            color: #b74b4b;
+            transform: scale(1.05);
+        }
+
+        .services-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Animations for modal and buttons */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Button hover effect */
+        .modal-trigger:hover {
+            background-color: #fff;
+            color: #b74b4b;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+            }
+
+            nav a {
+                font-size: 1.5rem;
+                margin-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Josh</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Skills.html" id="openSkills">My Skills</a>
+    </nav>
+</header>
+
+<section>
+    <div class="home-content">
+        <h1 class="intro-text">Welcome to My Site!</h1>
+        <p class="intro-subtext">I am here to help you.</p>
+        <p class="intro-subtext">Discover how my skills can benefit your project.</p>
+        <img src="https://image.cdn2.seaart.ai/2023-08-18/14710967066742789/ec6b001f2a61ed335fbf43144e6fe8edf77976b8_high.webp" alt="Services Image" class="services-image">
+        <button class="modal-trigger" id="openSkillsButton">Learn More About My Skills</button>
+    </div>
+</section>
+
+<!-- Modal for Skills -->
+<div id="skillsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSkillsModal()">&times;</span>
+        <h2>My Skills</h2>
+        <img src="https://image.cdn2.seaart.ai/2024-02-03/cmv88ole878c73ec54p0/940804706caf3ec053755e9248c9881d49b69e28_high.webp" class="services-image" alt="Skills Image">
+        <p>Proficient in Java, Python, C++, HTML, CSS, and JavaScript. I specialize in:</p>
+        <ul>
+            <li><strong>Software Development</strong>: Building robust applications for businesses and users.</li>
+            <li><strong>Web Development</strong>: Crafting responsive websites using modern technologies.</li>
+            <li><strong>Mobile Apps</strong>: Creating cross-platform apps for Android and iOS.</li>
+            <li><strong>API Design</strong>: Developing APIs for smooth integration and scalability.</li>
+            <li><strong>Data Analysis</strong>: Working with data to derive actionable insights.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const skillsModal = document.getElementById('skillsModal');
+    const openSkillsModalButton = document.getElementById('openSkillsButton');
+    const closeSkillsModalButton = document.querySelector('.close');
+
+    openSkillsModalButton.addEventListener('click', () => {
+        skillsModal.style.display = 'flex';
+        setTimeout(() => {
+            document.querySelector('.modal-content').classList.add('show');
+        }, 10);
+    });
+
+    function closeSkillsModal() {
+        document.querySelector('.modal-content').classList.remove('show');
+        setTimeout(() => {
+            skillsModal.style.display = 'none';
+        }, 300);
+    }
+
+    window.addEventListener('click', (event) => {
+        if (event.target === skillsModal) {
+            closeSkillsModal();
+        }
+    });
+</script>
+
+</body>
+</html>
