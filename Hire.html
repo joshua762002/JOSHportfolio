@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Me Modal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap">
+    <style>
+        /* General reset and font setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            background-color: #121212;
+            color: white;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 9%;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #b74b4b;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav a {
+            font-size: 1.8rem;
+            color: white;
+            margin-left: 4rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #b74b4b;
+            border-bottom: 3px solid #b74b4b;
+        }
+
+        section {
+            padding: 5rem 9% 5rem;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #b74b4b;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .intro-subtext {
+            font-size: 1.8rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .modal-content {
+            background-color: #161616;
+            padding: 30px;
+            border: 1px solid #b74b4b;
+            width: 70%;
+            max-width: 950px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal-content.show {
+            transform: scale(1);
+        }
+
+        .close {
+            color: #b74b4b;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .close:hover {
+            color: white;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b74b4b;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1.6rem;
+        }
+
+        li {
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        li:hover {
+            color: #b74b4b;
+        }
+
+        li::before {
+            content: "✓ ";
+            color: #b74b4b;
+        }
+
+        .modal-trigger {
+            background-color: #b74b4b;
+            padding: 1rem 2rem;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.6rem;
+            border: none;
+        }
+
+        .modal-trigger:hover {
+            background-color: white;
+            color: #b74b4b;
+            transform: scale(1.05);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+            }
+
+            nav a {
+                font-size: 1.5rem;
+                margin-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Josh</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Hire.html" id="openHireMe">Hire Me</a>
+    </nav>
+</header>
+
+<section>
+    <div class="home-content">
+        <h1 class="intro-text">Welcome to My Portfolio!</h1>
+        <p class="intro-subtext">Explore my skills and expertise, and let's discuss how I can contribute to your team.</p>
+        <img src="https://backiee.com/static/wallpapers/1000x563/386745.jpg" alt="Portfolio Image" class="portfolio-image">
+        <button class="modal-trigger" id="openHireMeButton">Learn More About My Skills</button>
+    </div>
+</section>
+
+<!-- Modal for Hire Me -->
+<div id="hireMeModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Why Hire Me?</h2>
+        <img src="https://backiee.com/static/wallpapers/1000x563/401721.jpg" class="portfolio-image" alt="Portfolio Image">
+        <p>I bring a passion for technology and a commitment to excellence. Here’s what I can bring to your team:</p>
+        <ul>
+            <li><strong>Specializations</strong>: Custom Software Development, Web & Mobile Applications, API Development</li>
+            <li><strong>Technical Expertise</strong>: Proficient in JavaScript, HTML, CSS, Java, Python, and C++</li>
+            <li><strong>Certifications</strong>: Full Stack Development, Web Development, JavaScript, Python</li>
+            <li><strong>Achievements</strong>: Completed complex projects for clients, received recognition for high-quality deliverables</li>
+            <li><strong>Contact</strong>: Email me at <a href="https://mail.google.com/mail/u/0/#inbox" style="color: #b74b4b;">Joshuaeviota100@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/joshua-eviota-02a4a8337/" target="_blank" style="color: #b74b4b;">LinkedIn</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('hireMeModal');
+    const openModalButton = document.getElementById('openHireMeButton');
+    const closeModalButton = document.querySelector('.close');
+
+    openModalButton.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            document.querySelector('.modal-content').classList.add('show');
+        }, 10);
+    });
+
+    function closeModal() {
+        document.querySelector('.modal-content').classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>
